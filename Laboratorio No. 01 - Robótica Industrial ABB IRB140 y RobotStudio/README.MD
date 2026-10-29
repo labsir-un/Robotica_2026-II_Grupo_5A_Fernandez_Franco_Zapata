@@ -26,7 +26,7 @@ Se diseñó una celda de trabajo donde la banda transporta una "torta virtual" h
 2. **Pose de Mantenimiento (DI 02):** Posición segura para cambio de herramienta/marcador.
 3. **Rutina "Farmear Aura" (DI 03):** Coreografía creativa del robot utilizando estructuras intermedias (ciclos/condicionales).
 
-Durante la implementación se aprendio a controlar la banda transportadora con FWD y BWD Conveyor.
+###Durante la implementación se aprendio a controlar la banda transportadora con FWD y BWD Conveyor.
 ---
 
 ## 2. Layout y Plano de Planta
