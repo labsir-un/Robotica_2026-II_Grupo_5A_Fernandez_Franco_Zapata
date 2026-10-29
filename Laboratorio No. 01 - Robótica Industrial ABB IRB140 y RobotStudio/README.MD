@@ -1,4 +1,4 @@
-# 🤖 Laboratorio de Robótica: Rob´ótica Industrial – Trayectorias, Entradas y Salidas Digitales
+# 🤖 Laboratorio de Robótica: Robótica Industrial – Trayectorias, Entradas y Salidas Digitales
 
 **Asignatura:** Robótica
 **Fecha de entrega:** 29 de octubre de 2026  
