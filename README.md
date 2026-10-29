@@ -11,7 +11,7 @@
 
 <h2>Profesores: <br>Pedro Fabián Cárdenas Herrera <br> Manuel Felipe Carranza Montenegro</h2>
 
-<h4>Nombre Integrante 1<br>
+<h4>Alejandro Zapata<br>
     Nombre Integrante 2<br>
     Nombre Integrante 3</h4>
 
@@ -57,14 +57,14 @@ Aquí se documentan los laboratorios, avances, resultados y la presentación de 
   <img src="./assets/integrantes/integrante1.jpg" alt="Foto integrante 1" style="border-radius: 50%; width: 180px;"><br>
 </div>
 
-- **Nombre completo:** Nombre Apellido
+- **Nombre completo:** Alejandro Zapata
 - **Carrera:** Ingeniería Mecatrónica
-- **Correo institucional:** nombre@unal.edu.co
-- **Usuario de GitHub:** [usuariogithub](https://github.com/usuariogithub)
-- **Rol en el equipo:** Ej. Integración ROS 2, documentación, simulación
-- **Intereses:** Robótica móvil, visión artificial, automatización
+- **Correo institucional:** alezapata@unal.edu.co
+- **Usuario de GitHub:** [ZapitUN](https://github.com/ZapitUN)
+- **Rol en el equipo:** Esclavo #1
+- **Intereses:** Graduarse
 - **Descripción breve:**  
-  Escribe aquí una breve presentación personal y académica del integrante.
+  No aplica
 
 ---
 
