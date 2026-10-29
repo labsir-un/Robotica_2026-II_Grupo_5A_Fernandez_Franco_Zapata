@@ -1,6 +1,6 @@
-# 🤖 Laboratorio de Robótica: [Nombre o Título de la Práctica]
+# 🤖 Laboratorio de Robótica: Rob´ótica Industrial – Trayectorias, Entradas y Salidas Digitales
 
-**Asignatura:** [Nombre de la asignatura]  
+**Asignatura:** Robótica
 **Fecha de entrega:** 29 de octubre de 2026  
 
 ---
