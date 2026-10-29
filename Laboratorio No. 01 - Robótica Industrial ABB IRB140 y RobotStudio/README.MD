@@ -24,7 +24,7 @@ Automatizar un proceso de decoración de tortas (aplicado a la industria de alim
 Se diseñó una celda de trabajo donde la banda transporta una "torta virtual" hacia el robot. El sistema opera bajo un ciclo principal (`WHILE TRUE`) que monitorea tres entradas digitales (DI 01, DI 02, DI 03) para ejecutar distintas rutinas:
 1. **Ciclo Automático (DI 01):** Transporte, decoración con nombres y figura libre, y evacuación del pastel.
 2. **Pose de Mantenimiento (DI 02):** Posición segura para cambio de herramienta/marcador.
-3. **Rutina "Farmear Aura" (DI 03):** Coreografía creativa del robot utilizando estructuras intermedias (ciclos/condicionales).
+3. **Rutina "Farmear Aura" (DI 03):** Coreografía creativa del robot utilizando estructuras intermedias.
 
 ### Durante la implementación se aprendio a controlar la banda transportadora con FWD y BWD Conveyor.
 ---
