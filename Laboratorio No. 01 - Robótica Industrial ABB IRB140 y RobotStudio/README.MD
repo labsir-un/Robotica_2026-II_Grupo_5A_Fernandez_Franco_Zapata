@@ -17,11 +17,16 @@
 ---
 
 ## 1. Descripción de la Solución
-*[Aquí debes redactar un resumen claro de cómo abordaste el problema. Explica el objetivo de la práctica, la estrategia general que seguiste y cómo el robot, la banda transportadora y la herramienta interactúan para cumplir la tarea.]*
+**Objetivo Principal:**  
+Automatizar un proceso de decoración de tortas (aplicado a la industria de alimentos) mediante el seguimiento controlado de trayectorias con un robot ABB IRB 140, integrando una banda transportadora y lógica de control basada en Entradas y Salidas Digitales (I/O).
 
-- **Objetivo principal:** [Breve descripción del objetivo]
-- **Estrategia implementada:** [Explicación de la lógica general]
+**Estrategia Implementada:**  
+Se diseñó una celda de trabajo donde la banda transporta una "torta virtual" hacia el robot. El sistema opera bajo un ciclo principal (`WHILE TRUE`) que monitorea tres entradas digitales (DI 01, DI 02, DI 03) para ejecutar distintas rutinas:
+1. **Ciclo Automático (DI 01):** Transporte, decoración con nombres y figura libre, y evacuación del pastel.
+2. **Pose de Mantenimiento (DI 02):** Posición segura para cambio de herramienta/marcador.
+3. **Rutina "Farmear Aura" (DI 03):** Coreografía creativa del robot utilizando estructuras intermedias (ciclos/condicionales).
 
+Durante la implementación se aprendio a controlar la banda transportadora con FWD y BWD Conveyor.
 ---
 
 ## 2. Layout y Plano de Planta
@@ -29,8 +34,9 @@
 A continuación, se presenta el plano de planta que indica la ubicación exacta de los elementos en el espacio de trabajo:
 
 - **Robot ABB:** ABB 140 + Herramienta (Portamarcador)
-- **Banda transportadora:** Ubicada Frente al robot, con función principal de llevar el "pastel" a una posición deseada.
+- **Banda transportadora:** Controlada bidireccionalmente (`FWD Conveyor` / `BWD Conveyor`), con función principal de llevar el "pastel" a una posición deseada.
 - **Superficies de trabajo:** "Pastel", basicamente es un tablero colocado para cumplir función de lugar de dibujo.
+- **Herramienta (TCP):** Soporte con marcador/plumón fijado al flange del robot.
 
 ![Plano de Planta de la Celda de Trabajo](ruta/a/tu/imagen_plano.png)
 *(Figura 1: Plano de planta de la celda de trabajo)*
@@ -53,7 +59,13 @@ El siguiente diagrama de flujo ilustra la secuencia completa de operaciones del 
 
 ## 4. Diseño y Modelado de la Herramienta
 ### 4.1. Diseño Detallado
-*[Describe cómo es la herramienta (Tool Data / Tool Center Point - TCP). Explica los materiales, el mecanismo de agarre (si es una pinza), la sujeción al brida del robot, y las consideraciones de diseño que tuviste en cuenta (peso, centro de gravedad, reach, etc.).]*
+| Parámetro Mecánico | Valor / Descripción |
+| :--- | :--- |
+| **Material de Impresión** | `[SELECCIONAR: PLA / PETG / OTRO]` |
+| **Masa Total de la Herramienta ($m$)** | `[INSERTAR MASA EN kg: ej. 0.25 kg]` |
+| **Centro de Masa ($X_g, Y_g, Z_g$)** | `[INSERTAR COORDENADAS EN mm]` |
+| **Constante del Resorte ($k$) / Amortiguación** | `[INSERTAR ESPECIFICACIÓN DEL RESORTE]` |
+| **Porcentaje de Relleno (*Infill*)** | `[INSERTAR % DE RELLENO]` |
 
 ### 4.2. Modelo CAD
 A continuación, se muestra el modelo CAD de la herramienta desarrollada:
@@ -66,20 +78,24 @@ A continuación, se muestra el modelo CAD de la herramienta desarrollada:
 ---
 
 ## 5. Calibración de la Herramienta
-*[Esta es una sección crítica. Compara ambos métodos.]*
 
-Se realizó la calibración del TCP (Tool Center Point) utilizando dos métodos distintos. A continuación, se comparan los resultados:
+El punto de centro de la herramienta (`tool_marcador`) se calibró físicamente mediante el **método de 4 puntos (*4-Point Method*)** aproximando la punta del marcador a una referencia fija desde distintas orientaciones del robot.
 
-| Parámetro / Métrica | Calibración en RobotStudio (Simulación) | Calibración en Robot Real (Físico) | Diferencia / Observaciones |
-| :--- | :--- | :--- | :--- |
-| **Método usado** | [Ej. 4 puntos / Automático] | [Ej. 4 puntos / Manual con punta] | - |
-| **Coordenada X (mm)** | [Valor] | [Valor] | [Diferencia] |
-| **Coordenada Y (mm)** | [Valor] | [Valor] | [Diferencia] |
-| **Coordenada Z (mm)** | [Valor] | [Valor] | [Diferencia] |
-| **Error máximo (mm)** | [Valor] | [Valor] | [Diferencia] |
+* **Parámetros Obtenidos de `tooldata`:**
+```rapid
+PERS tooldata tool_marcador := [TRUE, [[X_tcp, Y_tcp, Z_tcp], [q1, q2, q3, q4]], [m, [Xg, Yg, Zg], [1, 0, 0, 0], 0, 0, 0]];
+```
+*(Reemplazar con los valores calibrados por el grupo)*:
+* **Posición ($X, Y, Z$):** `[INSERTAR X_tcp, Y_tcp, Z_tcp en mm]`
+* **Orientación Quaternion ($q_1, q_2, q_3, q_4$):** `
 
 **Análisis de la comparación:**
 *[Explica por qué existen diferencias. ¿Hubo error humano en el robot real? ¿Juego mecánico en las articulaciones? ¿La simulación asume perfección?]*
+### Análisis de Desviaciones entre Simulación y Realidad
+| Medida | Valor en RobotStudio | Valor Real | Error / Desviación |
+| :--- | :--- | :--- | :--- |
+| **Error de Posicionamiento TCP** | 0.0 mm | `[INSERTAR ER] mm` | `[INSERTAR]` |
+| **Desviación Z del WorkObject** | 0.0 mm | `[INSERTAR ER] mm` | Absorbedor por resorte |
 
 ---
 
