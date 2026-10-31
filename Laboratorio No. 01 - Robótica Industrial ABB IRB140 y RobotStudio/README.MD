@@ -127,9 +127,9 @@ PERS tooldata dfernandSim:=[TRUE,[[100.312,-2,94.461],[0.866025404,0,0.5,0]],[1,
 
 ---
 
-## 8. Lógica de Control, Entradas/Salidas Digitales y Máquina de Estados
+## 7. Lógica de Control, Entradas/Salidas Digitales y Máquina de Estados
 
-### 8.1 Mapeo de Señales Digitales (I/O)
+### 7.1 Mapeo de Señales Digitales (I/O)
 La integración entre el controlador **IRC5**, la banda transportadora y los periféricos de la celda se realiza mediante el tablero de E/S discretas configuradas de acuerdo al estándar de la práctica:
 
 | Señal | Tipo | Descripción y Función en el Proceso |
@@ -140,15 +140,15 @@ La integración entre el controlador **IRC5**, la banda transportadora y los per
 | **`DO_01`** | Salida Digital | **Indicador Operación Nominal:** Luz o baliza activada durante la ejecución del decorado. |
 | **`DO_02`** | Salida Digital | **Indicador Mantenimiento:** Luz o baliza activada cuando el robot está en mantenimiento. |
 | **`DO_03`** | Salida Digital | **Farmear aura:** Baliza indicadora del modo farmear aura |
-
+  
 ![](img/entradas%20salidas.jpeg)
 
 ---
 
-## 9. Código Fuente
+## 8. Código Fuente
 
 El programa en RAPID se organizó de forma modular , separando la declaración de datos, las subrutinas de movimiento de cada palabra/figura y el bucle principal de control.
-![Link al codigo fuente en rapid](img/codigo%20rapid.txt) 
+Código ![RAPID](img/codigo%20rapid.txt) 
 
 ## 9. Resultados
 
@@ -158,7 +158,7 @@ El programa en RAPID se organizó de forma modular , separando la declaración d
 ![Dibujo](img/torta.jpeg)
 *(Figura 4: Dibujo en la torta)*
 
-[![Link Video Demostrativo](https://img.youtube.com/vi/evjbuGVIjMU.jpg)](https://www.youtube.com/watch?v=evjbuGVIjMU)
+[![Link Video Demostrativo](https://img.youtube.com/vi/evjbuGVIjMU/0.jpg)](https://www.youtube.com/watch?v=evjbuGVIjMU)
 
 ## 10. Conclusiones
 
