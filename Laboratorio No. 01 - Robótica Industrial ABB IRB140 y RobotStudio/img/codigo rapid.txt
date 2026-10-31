@@ -1,0 +1,351 @@
+MODULE Module1
+    PERS tooldata dfernandSim:=[TRUE,[[100.312,-2,94.461],[0.866025404,0,0.5,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];
+    CONST robtarget Home_robot:=[[537.941276913,-2,545.396759696],[0,0,1,0],[-1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    PERS wobjdata wobj1_tablero:=[FALSE,TRUE,"",[[701.177,-341.241,178.871],[0.0257679,-0.00328293,0.999652,-0.00460603]],[[0,0,0],[1,0,0,0]]];
+    !circulo en el centro
+    CONST robtarget Target_10:=[[145,175,0],[1,0,0,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_20:=[[131.180339888,194.021130326,0],[1,0,0,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_30:=[[108.819660113,186.755705045,0],[1,0,0,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_40:=[[108.819660113,163.244294954,0],[1,0,0,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_50:=[[131.180339888,155.978869674,0],[1,0,0,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_60:=[[145,175,0],[1,0,0,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    !cuadrado
+    CONST robtarget Target_80:=[[21.419,20.397,0],[1,0,0,0],[-1,-1,0,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_90:=[[221.419,20.397,0],[1,0,0,0],[-1,-1,0,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_100:=[[221.419,320.397,0],[1,0,0,0],[-1,-1,0,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_110:=[[21.419,320.397,0],[1,0,0,0],[-1,-1,0,1],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+
+    
+    
+    
+  
+    
+    !************************************************
+    
+  
+  !************************************************
+    
+    !**********************************************************
+    PROC main()
+        Path_home;
+    WHILE TRUE DO
+        IF DI_01=1 THEN
+            Decoracion;
+        ENDIF
+        IF DI_02=1 THEN
+            Mantenimiento;
+        ENDIF
+        IF DI_03=1 THEN
+            FarmAura;
+        ENDIF
+    ENDWHILE
+        
+    ENDPROC
+    
+    PROC mover_banda_FWD()
+        reset_señales;
+       SetDO FWD_Conveyor, 1;
+           SetDO DO_01,1;
+        WaitTime 4;
+        SetDO FWD_Conveyor, 0;
+       !SetDO DO_01 ,0;
+        
+    ENDPROC
+    
+   
+    
+    PROC Decoracion()
+        Path_home;
+        mover_banda_FWD;
+        WaitTime 3;
+        SetDO DO_01,1;
+        Draw_RobotArm_SVG;
+        SetDO DO_01,0;
+        Path_home;
+        mover_banda_FWD;
+    ENDPROC
+    
+    PROC Mantenimiento()
+        Path_home;
+    ENDPROC
+    
+    !!!!!
+    PROC FarmAura()
+    ! =========================================
+    ! FASE 1: El "Mewing" (Postura de superioridad)
+    ! =========================================
+    ! El robot sube y se echa hacia adelante, sacando "el pecho"
+    MoveJ Offs(Home_robot, 0, -130, 80), v100, fine, dfernandSim\WObj:=wobj0;
+    WaitTime 1.5; ! Pausa dramática para mirar a los demás a los ojos
+    
+    ! =========================================
+    ! FASE 2: El "Dab" (Movimiento rápido y gracioso)
+    ! =========================================
+    ! Giro brusco hacia la derecha simulando el dab
+    MoveJ Offs(Home_robot, 130, -80, 0), v500, fine, dfernandSim\WObj:=wobj0;
+    WaitTime 0.8; 
+    
+    ! Se cruza rápido hacia la izquierda
+    MoveJ Offs(Home_robot, -130, -80, 0), v500, fine, dfernandSim\WObj:=wobj0;
+    WaitTime 0.4;
+
+    ! =========================================
+    ! FASE 3: El "6 - 7" (El meme viral)
+    ! =========================================
+    ! Balanceos rápidos de izquierda a derecha
+    MoveJ Offs(Home_robot, -100, -30, -50), v500, fine, dfernandSim\WObj:=wobj0;
+    WaitTime 0.15;
+    MoveJ Offs(Home_robot, 100, -30, -50), v500, fine, dfernandSim\WObj:=wobj0;
+    WaitTime 0.15;
+    MoveJ Offs(Home_robot, -100, -30, -50), v500, fine, dfernandSim\WObj:=wobj0;
+    WaitTime 0.15;
+    MoveJ Offs(Home_robot, 100, -30, -50), v500, fine, dfernandSim\WObj:=wobj0;
+    WaitTime 0.4;
+
+    ! =========================================
+    ! FASE 4: "Farming Aura" (El remate final)
+    ! =========================================
+    ! El robot se eleva al centro y se queda quieto, imponiendo respeto
+    MoveJ Offs(Home_robot, 0, -50, 130), v200, fine, dfernandSim\WObj:=wobj0;
+    WaitTime 2.0; ! Pausa larga de "Aura Farming"
+    
+    ! =========================================
+    ! FASE 5: Regreso a casa
+    ! =========================================
+    Path_home;
+ENDPROC
+    !!!!!
+    
+    PROC Path_home()
+        MoveJ Home_robot,v100,z10,dfernandSim\WObj:=wobj0;
+    ENDPROC
+    
+    PROC Pos_Deco()
+       ! MoveJ aprox_tablero,v100,z10,dfernandSim\WObj:=wobj0;
+       ! MoveJ Home_tablero,v100,z10,dfernandSim\WObj:=wobj0;
+    ENDPROC    
+
+    
+    PROC Path_20()
+        MoveJ Target_80,v100,z10,dfernandSim\WObj:=wobj1_tablero;
+        MoveL Target_90,v100,z10,dfernandSim\WObj:=wobj1_tablero;
+        MoveL Target_100,v100,z10,dfernandSim\WObj:=wobj1_tablero;
+        MoveL Target_110,v100,z10,dfernandSim\WObj:=wobj1_tablero;
+        MoveL Target_80,v100,z10,dfernandSim\WObj:=wobj1_tablero;
+
+    ENDPROC
+    
+    !!!!!!!!!!!!!!!!!!!!!!!
+    PROC DrawSegment(num x1, num y1, num x2, num y2)
+    ! Lift tool (Negative Z goes UP)
+    MoveL Offs(Target_80, x1, y1, -15), v100, fine, dfernandSim\WObj:=wobj1_tablero;
+    ! Lower to surface
+    MoveL Offs(Target_80, x1, y1, 0), v50, fine, dfernandSim\WObj:=wobj1_tablero;
+    ! Draw line
+    MoveL Offs(Target_80, x2, y2, 0), v50, fine, dfernandSim\WObj:=wobj1_tablero;
+    ! Lift tool
+    MoveL Offs(Target_80, x2, y2, -15), v100, fine, dfernandSim\WObj:=wobj1_tablero;
+ENDPROC
+
+PROC DrawCircle(num cx, num cy, num r)
+    VAR num i;
+    VAR num ang;
+    VAR num x;
+    VAR num y;
+
+    ! Move to start of circle
+    MoveL Offs(Target_80, cx + r, cy, -15), v100, fine, dfernandSim\WObj:=wobj1_tablero;
+    MoveL Offs(Target_80, cx + r, cy, 0), v50, fine, dfernandSim\WObj:=wobj1_tablero;
+
+    ! Draw circle
+    FOR i FROM 1 TO 36 DO
+        ang := i * 10;
+        x := cx + r * Cos(ang);
+        y := cy + r * Sin(ang);
+        MoveL Offs(Target_80, x, y, 0), v50, fine, dfernandSim\WObj:=wobj1_tablero;
+    ENDFOR
+
+    ! Lift tool
+    MoveL Offs(Target_80, cx + r, cy, -15), v100, fine, dfernandSim\WObj:=wobj1_tablero;
+ENDPROC
+
+PROC DrawText()
+    ! -----------------------------------------
+    ! Line 1: EDWIN (Rotado 180 y Centrado)
+    ! -----------------------------------------
+    DrawSegment 141.5,222, 133.5,222;
+    DrawSegment 141.5,222, 141.5,234;
+    DrawSegment 141.5,234, 133.5,234;
+    DrawSegment 141.5,228, 135.5,228;
+    
+    DrawSegment 127.5,222, 127.5,234;
+    DrawSegment 127.5,234, 122.5,234;
+    DrawSegment 122.5,234, 119.5,231;
+    DrawSegment 119.5,231, 119.5,225;
+    DrawSegment 119.5,225, 122.5,222;
+    DrawSegment 122.5,222, 127.5,222;
+    
+    DrawSegment 115.5,234, 113.5,222;
+    DrawSegment 113.5,222, 111.5,230;
+    DrawSegment 111.5,230, 109.5,222;
+    DrawSegment 109.5,222, 107.5,234;
+    
+    DrawSegment 103.5,234, 103.5,222;
+    DrawSegment 105.5,234, 101.5,234;
+    DrawSegment 105.5,222, 101.5,222;
+    
+    DrawSegment 99.5,222, 99.5,234;
+    DrawSegment 99.5,234, 91.5,222;
+    DrawSegment 91.5,222, 91.5,234;
+
+    ! -----------------------------------------
+    ! Line 2: DIEGO (Rotado 180 y Centrado)
+    ! -----------------------------------------
+    DrawSegment 141.5,244, 141.5,256;
+    DrawSegment 141.5,256, 136.5,256;
+    DrawSegment 136.5,256, 133.5,253;
+    DrawSegment 133.5,253, 133.5,247;
+    DrawSegment 133.5,247, 136.5,244;
+    DrawSegment 136.5,244, 141.5,244;
+    
+    DrawSegment 129.5,256, 129.5,244;
+    DrawSegment 131.5,256, 127.5,256;
+    DrawSegment 131.5,244, 127.5,244;
+    
+    DrawSegment 123.5,244, 115.5,244;
+    DrawSegment 123.5,244, 123.5,256;
+    DrawSegment 123.5,256, 115.5,256;
+    DrawSegment 123.5,250, 117.5,250;
+    
+    DrawSegment 105.5,254, 107.5,256;
+    DrawSegment 107.5,256, 111.5,256;
+    DrawSegment 111.5,256, 113.5,254;
+    DrawSegment 113.5,254, 113.5,246;
+    DrawSegment 113.5,246, 111.5,244;
+    DrawSegment 111.5,244, 107.5,244;
+    DrawSegment 107.5,244, 105.5,246;
+    DrawSegment 105.5,246, 105.5,250;
+    DrawSegment 105.5,250, 109.5,250;
+    
+    DrawSegment 97.5,256, 101.5,256;
+    DrawSegment 101.5,256, 103.5,254;
+    DrawSegment 103.5,254, 103.5,246;
+    DrawSegment 103.5,246, 101.5,244;
+    DrawSegment 101.5,244, 97.5,244;
+    DrawSegment 97.5,244, 95.5,246;
+    DrawSegment 95.5,246, 95.5,254;
+    DrawSegment 95.5,254, 97.5,256;
+
+    ! -----------------------------------------
+    ! Line 3: ALEJANDRO (Rotado 180 y Centrado)
+    ! -----------------------------------------
+    DrawSegment 161.5,266, 157.5,278;
+    DrawSegment 157.5,278, 153.5,266;
+    DrawSegment 160,270, 155,270;
+    
+    DrawSegment 149.5,278, 149.5,266;
+    DrawSegment 149.5,266, 141.5,266;
+    
+    DrawSegment 137.5,266, 129.5,266;
+    DrawSegment 137.5,266, 137.5,278;
+    DrawSegment 137.5,278, 129.5,278;
+    DrawSegment 137.5,272, 131.5,272;
+    
+    DrawSegment 121.5,278, 121.5,268;
+    DrawSegment 121.5,268, 123.5,266;
+    DrawSegment 123.5,266, 127.5,266;
+    DrawSegment 127.5,266, 129.5,268;
+    
+    DrawSegment 117.5,266, 113.5,278;
+    DrawSegment 113.5,278, 109.5,266;
+    DrawSegment 116,270, 111,270;
+    
+    DrawSegment 105.5,266, 105.5,278;
+    DrawSegment 105.5,278, 97.5,266;
+    DrawSegment 97.5,266, 97.5,278;
+    
+    DrawSegment 93.5,266, 93.5,278;
+    DrawSegment 93.5,278, 88.5,278;
+    DrawSegment 88.5,278, 85.5,275;
+    DrawSegment 85.5,275, 85.5,269;
+    DrawSegment 85.5,269, 88.5,266;
+    DrawSegment 88.5,266, 93.5,266;
+    
+    DrawSegment 81.5,266, 81.5,278;
+    DrawSegment 81.5,278, 75.5,278;
+    DrawSegment 75.5,278, 73.5,276;
+    DrawSegment 73.5,276, 73.5,272;
+    DrawSegment 73.5,272, 75.5,270;
+    DrawSegment 75.5,270, 81.5,270;
+    DrawSegment 77.5,270, 73.5,266;
+    
+    DrawSegment 65.5,278, 69.5,278;
+    DrawSegment 69.5,278, 71.5,276;
+    DrawSegment 71.5,276, 71.5,268;
+    DrawSegment 71.5,268, 69.5,266;
+    DrawSegment 69.5,266, 65.5,266;
+    DrawSegment 65.5,266, 63.5,268;
+    DrawSegment 63.5,268, 63.5,276;
+    DrawSegment 63.5,276, 65.5,278;
+ENDPROC
+
+PROC Draw_RobotArm_SVG()
+    ! 1. Safe approach point (Lifted high, centered)
+    MoveJ Offs(Target_80, 100, 150, -30), v100, fine, dfernandSim\WObj:=wobj1_tablero;
+
+    ! 2. Draw the Text (Top of the board)
+    DrawText;
+
+    ! 3. Draw the Robot Arm Geometry (Bottom of the board)
+    ! Base
+    DrawSegment 40, 60, 160, 60;
+    DrawSegment 160, 60, 160, 25;
+    DrawSegment 160, 25, 40, 25;
+    DrawSegment 40, 25, 40, 60;
+
+    ! Lower Arm
+    DrawSegment 60, 60, 40, 120;
+    DrawSegment 110, 60, 90, 120;
+
+    ! Shoulder Joint (Concentric circles)
+    DrawCircle 65, 150, 35;
+    DrawCircle 65, 150, 20;
+
+    ! Upper Arm
+    DrawSegment 95, 135, 135, 135;
+    DrawSegment 95, 165, 135, 165;
+
+    ! Wrist Joint
+    DrawSegment 135, 175, 155, 175;
+    DrawSegment 155, 175, 155, 125;
+    DrawSegment 155, 125, 135, 125;
+    DrawSegment 135, 125, 135, 175;
+
+    ! Gripper
+    DrawSegment 155, 135, 175, 120;
+    DrawSegment 175, 120, 185, 130;
+    DrawSegment 155, 165, 175, 180;
+    DrawSegment 175, 180, 185, 170;
+
+    ! 4. Safe retract
+    MoveL Offs(Target_80, 100, 150, -30), v100, fine, dfernandSim\WObj:=wobj1_tablero;
+ENDPROC
+ 
+    !!!!!!!!!!!!!!!!!!!!!!!
+    
+    
+    
+    PROC reset_señales()
+        Reset FWD_Conveyor;
+        Reset BWD_Conveyor ;
+        Reset DO_01;
+        Reset DO_02;
+        Reset DO_03;
+    ENDPROC
+    
+    
+    
+    
+
+
+ENDMODULE

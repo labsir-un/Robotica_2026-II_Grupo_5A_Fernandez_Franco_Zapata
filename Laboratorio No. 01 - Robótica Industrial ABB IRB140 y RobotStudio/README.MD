@@ -38,7 +38,7 @@ A continuación, se presenta el plano de planta que indica la ubicación exacta 
 - **Superficies de trabajo:** "Pastel", basicamente es un tablero colocado para cumplir función de lugar de dibujo.
 - **Herramienta (TCP):** Soporte con marcador/plumón fijado al flange del robot.
 
-![Plano de Planta de la Celda de Trabajo](ruta/a/tu/imagen_plano.png)
+![Plano de Planta de la Celda de Trabajo](img/gemelo%20dig.jpeg)
 *(Figura 1: Plano de planta de la celda de trabajo)*
 
 ---
@@ -61,36 +61,33 @@ El siguiente diagrama de flujo ilustra la secuencia completa de operaciones del 
 ### 4.1. Diseño Detallado
 | Parámetro Mecánico | Valor / Descripción |
 | :--- | :--- |
-| **Material de Impresión** | `[SELECCIONAR: PLA / PETG / OTRO]` |
-| **Masa Total de la Herramienta ($m$)** | `[INSERTAR MASA EN kg: ej. 0.25 kg]` |
-| **Centro de Masa ($X_g, Y_g, Z_g$)** | `[INSERTAR COORDENADAS EN mm]` |
-| **Constante del Resorte ($k$) / Amortiguación** | `[INSERTAR ESPECIFICACIÓN DEL RESORTE]` |
-| **Porcentaje de Relleno (*Infill*)** | `[INSERTAR % DE RELLENO]` |
+| **Material de Impresión** | PLA |
+| **Masa Total de la Herramienta ($m$)** | 0.28 KG |
+| **Centro de Masa ($X_g, Y_g, Z_g$)($mm$)** |  0 , -18.75 , -7.71   |
+| **Porcentaje de Relleno** | 15% |
 
 ### 4.2. Modelo CAD
 A continuación, se muestra el modelo CAD de la herramienta desarrollada:
 
-![Modelo CAD de la Herramienta](ruta/a/tu/imagen_cad.png)
+![Modelo CAD de la Herramienta](img/cad.jpeg)
 *(Figura 3: Modelo CAD de la herramienta / Tool)*
 
-- **Archivo CAD:** [Enlace al archivo `.step`, `.stl` o carpeta en el repositorio si aplica]
+
 
 ---
 
 ## 5. Calibración de la Herramienta
 
-El punto de centro de la herramienta (`tool_marcador`) se calibró físicamente mediante el **método de 4 puntos (*4-Point Method*)** aproximando la punta del marcador a una referencia fija desde distintas orientaciones del robot.
+El punto de centro de la herramienta (`tool_marcador`) se calibró físicamente mediante el **método de 4 puntos** aproximando la punta del marcador a una referencia fija desde distintas orientaciones del robot.
 
 * **Parámetros Obtenidos de `tooldata`:**
 ```rapid
-PERS tooldata tool_marcador := [TRUE, [[X_tcp, Y_tcp, Z_tcp], [q1, q2, q3, q4]], [m, [Xg, Yg, Zg], [1, 0, 0, 0], 0, 0, 0]];
+PERS tooldata dfernandSim:=[TRUE,[[100.312,-2,94.461],[0.866025404,0,0.5,0]],[1,[0,0,1],[1,0,0,0],0,0,0]];
 ```
-*(Reemplazar con los valores calibrados por el grupo)*:
-* **Posición ($X, Y, Z$):** `[INSERTAR X_tcp, Y_tcp, Z_tcp en mm]`
-* **Orientación Quaternion ($q_1, q_2, q_3, q_4$):** `
+
 
 **Análisis de la comparación:**
-*[Explica por qué existen diferencias. ¿Hubo error humano en el robot real? ¿Juego mecánico en las articulaciones? ¿La simulación asume perfección?]*
+
 ### Análisis de Desviaciones entre Simulación y Realidad
 | Medida | Valor en RobotStudio | Valor Real | Error / Desviación |
 | :--- | :--- | :--- | :--- |
@@ -101,7 +98,7 @@ PERS tooldata tool_marcador := [TRUE, [[X_tcp, Y_tcp, Z_tcp], [q1, q2, q3, q4]],
 
 ## 6. Programación en RAPID
 ### 6.1. Instrucciones y Funciones Utilizadas
-*[Haz una lista o tabla de los comandos de RAPID más importantes que usaste y explica brevemente para qué sirven en el contexto de tu código.]*
+
 
 | Instrucción / Función | Descripción y uso en la práctica |
 | :--- | :--- |
@@ -115,22 +112,5 @@ PERS tooldata tool_marcador := [TRUE, [[X_tcp, Y_tcp, Z_tcp], [q1, q2, q3, q4]],
 ## 7. Código Fuente
 A continuación, se presenta el código completo en RAPID utilizado durante el desarrollo de la práctica. 
 
-*(Nota: Si el código es muy extenso, puedes dejar aquí los módulos principales y dejar el resto en archivos `.mod` o `.pgf` dentro de una carpeta `/codigo` en tu repositorio).*
 
-```rapid
-MODULE MainModule
-    ! Declaración de variables y constantes
-    CONST robtarget pHome := [...];
-    PERS tooldata tTool := [...];
-    
-    ! Programa principal
-    PROC main()
-        ! Lógica principal
-        ...
-    ENDPROC
-    
-    ! Subrutinas y funciones
-    PROC MoverAPieza()
-        ...
-    ENDPROC
-ENDMODULE
+
