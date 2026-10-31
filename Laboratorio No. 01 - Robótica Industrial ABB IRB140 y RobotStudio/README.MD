@@ -148,7 +148,7 @@ La integración entre el controlador **IRC5**, la banda transportadora y los per
 ## 8. Código Fuente
 
 El programa en RAPID se organizó de forma modular , separando la declaración de datos, las subrutinas de movimiento de cada palabra/figura y el bucle principal de control.
-Código ![RAPID](img/codigo%20rapid.txt) 
+Código [RAPID](img/codigo%20rapid.txt) 
 
 ## 9. Resultados
 
@@ -158,6 +158,7 @@ Código ![RAPID](img/codigo%20rapid.txt)
 ![Dibujo](img/torta.jpeg)
 *(Figura 4: Dibujo en la torta)*
 
+VIDEO
 [![Link Video Demostrativo](https://img.youtube.com/vi/evjbuGVIjMU/0.jpg)](https://www.youtube.com/watch?v=evjbuGVIjMU)
 
 ## 10. Conclusiones
