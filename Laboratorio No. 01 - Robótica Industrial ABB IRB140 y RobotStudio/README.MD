@@ -11,10 +11,10 @@
 3. [Diagrama de Flujo del Sistema](#3-diagrama-de-flujo-del-sistema)
 4. [Diseño y Modelado de la Herramienta](#4-diseño-y-modelado-de-la-herramienta)
 5. [Calibración de la Herramienta](#5-calibración-de-la-herramienta)
-6. [Modelado del pastel](#6-modelado-geométrico-del-pastel-y-trayectorias)
-7. [Programacion en rapid](#7-programación-en-rapid)
-8. [Logica de control](#8-lógica-de-control-entradassalidas-digitales-y-máquina-de-estados)
-9. [Codigo Fuente](#9-código-fuente)
+6. [Programacion en rapid](#7-programación-en-rapid)
+7. [Logica de control](#8-lógica-de-control-entradassalidas-digitales-y-máquina-de-estados)
+8. [Codigo Fuente](#9-código-fuente)
+9. [Resultados](#9-resultados)
 10. [Conclusiones](#10-conclusiones)
 
 ---
