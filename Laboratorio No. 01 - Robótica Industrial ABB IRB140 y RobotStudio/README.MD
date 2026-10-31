@@ -158,7 +158,7 @@ Código [RAPID](img/codigo%20rapid.txt)
 ![Dibujo](img/torta.jpeg)
 *(Figura 4: Dibujo en la torta)*
 
-VIDEO
+### VIDEO  
 [![Link Video Demostrativo](https://img.youtube.com/vi/evjbuGVIjMU/0.jpg)](https://www.youtube.com/watch?v=evjbuGVIjMU)
 
 ## 10. Conclusiones
