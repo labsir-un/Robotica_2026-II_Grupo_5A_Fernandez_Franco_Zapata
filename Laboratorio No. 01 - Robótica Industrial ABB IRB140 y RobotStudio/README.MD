@@ -55,9 +55,9 @@ El siguiente diagrama de flujo ilustra la secuencia completa de operaciones del 
 ---
 
 **Descripción de las etapas principales:**
-1. **[DI_02, Pose de mantenimiento]:** ...
-2. **[DI_01, Decoración]:** ...
-3. **[DI_03, Farmear Aura]:** ...
+1. **[DI_02, Pose de mantenimiento]:** Nuestra pose de mandenimiento basicamente es nuestro mismo home debido a la facilidad que teniamos para cambiar la herramienta de forma segura
+2. **[DI_01, Decoración]:** se inicia con el movimiento de la banda para posicionar el paster posteriormente el robot se aproxima y comienza su rutina de pintado para luego ir a una posición segura e iniciar la salida del pastel con la banda
+3. **[DI_03, Farmear Aura]:** movimientos sincronizados de forma segura en el aire
 
 ---
 
