@@ -80,7 +80,7 @@ La herramienta porta-marcador fue modelada en software CAD (**Onshape**) y fabri
 ### 4.2. Modelo CAD
 A continuación, se muestra el modelo CAD de la herramienta desarrollada:
 
-![Modelo CAD de la Herramienta](img/cad.jpeg)
+![Modelo CAD de la Herramienta](img/cad.jpeg)  
 *(Figura 3: Modelo CAD de la herramienta / Tool)*
 
 
@@ -121,7 +121,7 @@ PERS tooldata dfernandSim:=[TRUE,[[100.312,-2,94.461],[0.866025404,0,0.5,0]],[1,
 | `FOR ... FROM ... TO` | Estructura repetitiva utilizada en la rutina `DrawCircle` para iterar a lo largo de un ángulo determinado y calcular incrementalmente los puntos de la trayectoria circular. |
 
 
-![](img/operaciones.jpeg)
+![](img/operaciones.jpeg)  
 *(Figura : operaciones en RobotStudio)*
 
 
