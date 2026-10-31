@@ -107,40 +107,18 @@ PERS tooldata dfernandSim:=[TRUE,[[100.312,-2,94.461],[0.866025404,0,0.5,0]],[1,
 
 ---
 
-## 6. Modelado Geométrico del Pastel y Trayectorias
-
-### 6.1 Distribución Espacial sobre la Torta
-El espacio de trabajo se define sobre la cara superior plana de la torta. Las trayectorias se programaron de forma plana (2D) sobre el plano XY del `wobjdata`, utilizando movimientos en el eje Z únicamente para la aproximación, contacto de escritura y retiro seguro de la herramienta.
-
-```
-       +---------------------------------------------------+
-       |                                                   |
-       |  [ DISTRIBUCIÓN GRÁFICA  DE LA TORTA / PLANO XY]       |
-       |                                                   |
-       |  Línea 1: [NOMBRE 1]                              |
-       |  Línea 2: [NOMBRE 2]                              |
-       |  Línea 3: [NOMBRE 3]                              |
-       |  Área Lateral: [FIGURA DECORATIVA]               |
-       |                                                   |
-       +---------------------------------------------------+
-```
-
-### 6.2 Parámetros de Movimiento Seleccionados
-* **Velocidad de Traslado :** `v200`  (200 mm/s)
-* **Velocidad de Escritura/Contacto:** `v10`( 10 mm/s)
-* **Zonas de Tolerancia (Precision):** `fine` en puntos de inicio/fin de trazo y esquinas agudas; `z1` a `z10` en trazos curvilíneos continuos.
-* **Altura de Altitud Segura ($Z_{safe}$):** ` 10 mm sobre la superficie`
-* **Altura de Contacto/Impresión ($Z_{write}$):** `-0.2 mm sobre la superficie`
-
-## 7. Programación en RAPID
-### 7.1. Instrucciones y Funciones Utilizadas
+## 6. Programación en RAPID
+### 6.1. Instrucciones y Funciones Utilizadas
 
 
 | Instrucción / Función | Descripción y uso en la práctica |
 | :--- | :--- |
-| `MoveJ` / `MoveL` | [Ej. Usado para aproximar a la pieza / para soldar o trazar] |
-| `TriggL` | [Ej. Usado para activar la pinza en un punto exacto de la trayectoria] |
-| `WaitDI` | [Ej. Usado para esperar a que la banda transportadora posicione la pieza] |
+| `MoveJ` / `MoveL` | Usados para mover el robot de forma articulada (`MoveJ`) en aproximaciones o traslados rápidos, y de forma lineal (`MoveL`) para realizar trazos precisos de líneas y figuras sobre el tablero. |
+| `SetDO` / `Reset` | Usados para activar (`SetDO`) y desactivar (`Reset`) las salidas digitales del controlador, permitiendo el control de la banda transportadora (`FWD_Conveyor`) y señales de proceso (`DO_01`). |
+| `WaitTime` | Usado para pausar la ejecución del programa durante un tiempo determinado (en segundos), como la espera de 4 segundos para el movimiento de la banda o pausas en las rutinas de movimiento. |
+| `IF ... THEN` / `WHILE` | Usados para el control de flujo del programa dentro de la rutina principal `main()`, permitiendo la ejecución continua y la selección de rutinas según las entradas digitales (`DI_01`, `DI_02`, `DI_03`). |
+| `Offs` | Función utilizada para calcular un nuevo punto desfasado en $X$, $Y$ o $Z$ a partir de una posición de referencia (`Target_80` o `Home_robot`), facilitando el levantamiento de la herramienta y el trazado de trayectorias. |
+| `FOR ... FROM ... TO` | Estructura repetitiva utilizada en la rutina `DrawCircle` para iterar a lo largo de un ángulo determinado y calcular incrementalmente los puntos de la trayectoria circular. |
 
 
 ![](img/operaciones.jpeg)
