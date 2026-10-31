@@ -41,7 +41,7 @@ A continuación, se presenta el plano de planta que indica la ubicación exacta 
 - **Superficies de trabajo:** "Pastel", basicamente es un tablero colocado para cumplir función de lugar de dibujo.
 - **Herramienta (TCP):** Soporte con marcador fijado al flange del robot.
 
-![Plano de Planta de la Celda de Trabajo](img/gemelo%20dig.jpeg)
+![Plano de Planta de la Celda de Trabajo](img/gemelo%20dig.jpeg)  
 *(Figura 1: Layout de la planta de la celda de trabajo)*
 
 ---
@@ -50,42 +50,7 @@ A continuación, se presenta el plano de planta que indica la ubicación exacta 
 
 El siguiente diagrama de flujo ilustra la secuencia completa de operaciones del sistema, desde el inicio del ciclo hasta la finalización de la tarea:
 
-
-```
-                         +-----------------------+
-                         |      INICIO (main)    |
-                         +-----------------------+
-                                     |
-                                     v
-                         +-----------------------+
-                         | Ir a Posición HOME    |
-                         +-----------------------+
-                                     |
-                                     v
-                       /---------------------------\
-                      /  Evaluar Señales DI_01/02/03   \
-                      \         (WHILE TRUE)        /
-                       \---------------------------/ 
-                         /           |           \
-              DI_01             DI_02           DI_03
-             /                       |                       \
-            v                        v                        v             v
-  +-------------------+    +-------------------+    farmear aura+-------------------+
-  | MODO DECORADO     |    | MODO MANTENIMIENTO|    |    |
-  | - DO_01 = 1       |    | - DO_02 = 1       |    | - Mueve a P_Apoyo |
-  | - Avanza Banda    |    | - |    +-------------------+
-  | - Ejecuta Paths   |    +-------------------+
-  | - Evacua Torta    |
-  +-------------------+
-            \                        |                        /
-             \                       |                       /
-              +----------------------+----------------------+
-                                     |
-                                     v
-                         +-----------------------+
-                         | Retorno a HOME        |
-                         +-----------------------+
-```
+(img/Diagram.jpg)  
 
 ---
 
