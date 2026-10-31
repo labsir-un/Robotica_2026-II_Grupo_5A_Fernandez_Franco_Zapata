@@ -215,7 +215,7 @@ El programa en RAPID se organizó de forma modular , separando la declaración d
 ![Dibujo](img/torta.jpeg)
 *(Figura 4: Dibujo en la torta)*
 
-![Link Video Demostrativo](https://youtu.be/evjbuGVIjMU)
+[![Link Video Demostrativo](https://img.youtube.com/vi/evjbuGVIjMU.jpg)](https://www.youtube.com/watch?v=evjbuGVIjMU)
 
 ## 10. Conclusiones
 
