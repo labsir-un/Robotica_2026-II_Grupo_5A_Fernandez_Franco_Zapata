@@ -50,7 +50,7 @@ A continuación, se presenta el plano de planta que indica la ubicación exacta 
 
 El siguiente diagrama de flujo ilustra la secuencia completa de operaciones del sistema, desde el inicio del ciclo hasta la finalización de la tarea:
 
-(img/Diagram.jpg)  
+![Diagrama de Flujo](img/Diagram.jpg)  
 
 ---
 
