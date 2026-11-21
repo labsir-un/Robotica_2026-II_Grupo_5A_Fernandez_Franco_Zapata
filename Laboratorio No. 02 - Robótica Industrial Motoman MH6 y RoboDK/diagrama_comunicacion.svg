@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 460" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <!-- Marcadores de tamaño fijo: la punta sobresale 1 px del extremo de la línea -->
+    <marker id="arrBlue" markerWidth="12" markerHeight="12" refX="11" refY="6"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#1f4e79"/>
+    </marker>
+    <marker id="arrRed" markerWidth="12" markerHeight="12" refX="11" refY="6"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#c62828"/>
+    </marker>
+    <marker id="arrGray" markerWidth="12" markerHeight="12" refX="11" refY="6"
+            orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#455a64"/>
+    </marker>
+
+    <filter id="shadow" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0b1f33" flood-opacity="0.18"/>
+    </filter>
+
+    <linearGradient id="gradPC" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2e75b6"/>
+      <stop offset="100%" stop-color="#1f4e79"/>
+    </linearGradient>
+    <linearGradient id="gradDX" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a6fa5"/>
+      <stop offset="100%" stop-color="#2c3e50"/>
+    </linearGradient>
+    <linearGradient id="gradRobot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#546e7a"/>
+      <stop offset="100%" stop-color="#37474f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== Encabezado ===== -->
+  <text x="490" y="36" text-anchor="middle" font-size="21" font-weight="700" fill="#1f4e79">
+    Arquitectura de comunicación — RoboDK ↔ DX100 ↔ Motoman MH6
+  </text>
+  <text x="490" y="60" text-anchor="middle" font-size="12.5" fill="#6b7c8a" font-style="italic">
+    Modo REMOTE · Driver MotomanHSE · Protocolo TCP/IP + UDP
+  </text>
+
+  <!-- ===== Tarjetas ===== -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="155" width="230" height="180" rx="14" fill="url(#gradPC)"/>
+    <rect x="375" y="155" width="230" height="180" rx="14" fill="url(#gradDX)"/>
+    <rect x="710" y="155" width="230" height="180" rx="14" fill="url(#gradRobot)"/>
+  </g>
+
+  <!-- PC -->
+  <text x="155" y="192" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">PC</text>
+  <line x1="75" y1="207" x2="235" y2="207" stroke="#ffffff" stroke-opacity="0.28" stroke-width="1"/>
+  <text x="155" y="236" text-anchor="middle" font-size="13" fill="#dbe5f1">RoboDK 6.2</text>
+  <text x="155" y="260" text-anchor="middle" font-size="13" fill="#dbe5f1">Python API</text>
+  <text x="155" y="286" text-anchor="middle" font-size="11.5" fill="#b8cce4">corazon.py</text>
+  <text x="155" y="308" text-anchor="middle" font-size="11.5" fill="#b8cce4">robolink · robomath</text>
+
+  <!-- DX100 -->
+  <text x="490" y="192" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">DX100</text>
+  <line x1="410" y1="207" x2="570" y2="207" stroke="#ffffff" stroke-opacity="0.28" stroke-width="1"/>
+  <text x="490" y="236" text-anchor="middle" font-size="13" fill="#dbe5f1">MotomanHSE</text>
+  <text x="490" y="260" text-anchor="middle" font-size="13" fill="#dbe5f1">INFORM (.JBI)</text>
+  <text x="490" y="286" text-anchor="middle" font-size="11.5" fill="#b0bec5">Firmware ≥ 2.7.00</text>
+  <text x="490" y="308" text-anchor="middle" font-size="11.5" fill="#b0bec5">Modo REMOTE</text>
+
+  <!-- Motoman MH6 -->
+  <text x="825" y="192" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">Motoman MH6</text>
+  <line x1="745" y1="207" x2="905" y2="207" stroke="#ffffff" stroke-opacity="0.28" stroke-width="1"/>
+  <text x="825" y="236" text-anchor="middle" font-size="13" fill="#dbe5f1">6 GDL · 6 kg</text>
+  <text x="825" y="260" text-anchor="middle" font-size="13" fill="#dbe5f1">Servomotores AC</text>
+  <text x="825" y="286" text-anchor="middle" font-size="11.5" fill="#b0bec5">TCP: herramienta</text>
+  <text x="825" y="308" text-anchor="middle" font-size="11.5" fill="#b0bec5">Plano X-Y del frame</text>
+
+  <!-- ===== Conectores PC ↔ DX100 ===== -->
+  <line x1="272" y1="212" x2="372" y2="212" stroke="#1f4e79" stroke-width="3" marker-end="url(#arrBlue)"/>
+  <line x1="372" y1="278" x2="272" y2="278" stroke="#c62828" stroke-width="3" marker-end="url(#arrRed)"/>
+
+  <text x="322" y="197" text-anchor="middle" font-size="12" font-weight="700" fill="#1f4e79">Comandos</text>
+  <text x="322" y="252" text-anchor="middle" font-size="10.5" fill="#78868f" font-style="italic">TCP/IP + UDP</text>
+  <text x="322" y="300" text-anchor="middle" font-size="12" font-weight="700" fill="#c62828">Estado</text>
+
+  <!-- ===== Conector DX100 → MH6 ===== -->
+  <line x1="607" y1="245" x2="707" y2="245" stroke="#455a64" stroke-width="3" marker-end="url(#arrGray)"/>
+  <text x="657" y="228" text-anchor="middle" font-size="12" font-weight="700" fill="#455a64">Señales</text>
+  <text x="657" y="266" text-anchor="middle" font-size="12" font-weight="700" fill="#455a64">de control</text>
+
+  <!-- ===== Leyenda ===== -->
+  <rect x="40" y="366" width="900" height="76" rx="10" fill="#f5f7fa" stroke="#dde4ea" stroke-width="1"/>
+
+  <text x="56" y="394" font-size="12" font-weight="700" fill="#37474f">Leyenda</text>
+
+  <!-- Elemento 1: Comandos -->
+  <line x1="130" y1="390" x2="190" y2="390" stroke="#1f4e79" stroke-width="3" marker-end="url(#arrBlue)"/>
+  <text x="200" y="394" font-size="11.5" fill="#37474f">Comandos (PC → controlador)</text>
+
+  <!-- Elemento 2: Estado -->
+  <line x1="425" y1="390" x2="485" y2="390" stroke="#c62828" stroke-width="3" marker-end="url(#arrRed)"/>
+  <text x="495" y="394" font-size="11.5" fill="#37474f">Estado (controlador → PC)</text>
+
+  <!-- Elemento 3: Señales de control -->
+  <line x1="705" y1="390" x2="765" y2="390" stroke="#455a64" stroke-width="3" marker-end="url(#arrGray)"/>
+  <text x="775" y="394" font-size="11.5" fill="#37474f">Señales de control a servos</text>
+
+  <text x="56" y="424" font-size="10.5" fill="#7a8893" font-style="italic">
+    Diagrama de elaboración propia con base en la documentación técnica de RoboDK y Yaskawa.
+  </text>
+</svg>

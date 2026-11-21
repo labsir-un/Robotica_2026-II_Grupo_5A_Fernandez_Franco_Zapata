@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 1020" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrowF" markerWidth="12" markerHeight="12" refX="10" refY="4" orient="auto">
+      <path d="M0,0 L0,8 L10,4 z" fill="#455a64"/>
+    </marker>
+    <filter id="shadowF" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.14"/>
+    </filter>
+    <linearGradient id="gradBlueF" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2e75b6"/>
+      <stop offset="100%" stop-color="#1f4e79"/>
+    </linearGradient>
+    <linearGradient id="gradGreenF" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#43a047"/>
+      <stop offset="100%" stop-color="#2e7d32"/>
+    </linearGradient>
+    <linearGradient id="gradRedF" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e53935"/>
+      <stop offset="100%" stop-color="#c62828"/>
+    </linearGradient>
+  </defs>
+
+  <text x="410" y="38" text-anchor="middle" font-size="21" font-weight="700" fill="#1f4e79">
+    Diagrama de flujo — Rutina del Motoman MH6
+  </text>
+  <text x="410" y="64" text-anchor="middle" font-size="12.5" fill="#666" font-style="italic">
+    Secuencia de acciones ejecutadas por el script corazon.py
+  </text>
+
+  <rect x="310" y="100" width="200" height="58" rx="29" fill="url(#gradGreenF)" filter="url(#shadowF)"/>
+  <text x="410" y="135" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">Inicio</text>
+  <line x1="410" y1="158" x2="410" y2="200" stroke="#455a64" stroke-width="2.5" marker-end="url(#arrowF)"/>
+
+  <rect x="150" y="200" width="520" height="80" rx="12" fill="url(#gradBlueF)" filter="url(#shadowF)"/>
+  <text x="410" y="234" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">1. ir_home()</text>
+  <text x="410" y="258" text-anchor="middle" font-size="12.5" fill="#dbe5f1">MoveJ · robot.JointsHome() · rounding desactivado</text>
+  <line x1="410" y1="280" x2="410" y2="322" stroke="#455a64" stroke-width="2.5" marker-end="url(#arrowF)"/>
+
+  <rect x="100" y="322" width="620" height="105" rx="12" fill="url(#gradBlueF)" filter="url(#shadowF)"/>
+  <text x="410" y="356" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">2. espiral()</text>
+  <text x="410" y="380" text-anchor="middle" font-size="12.5" fill="#dbe5f1">r(θ) = b·θ  ·  θᵢ = θ_max · √(i/N)  ·  θ ∈ [0, 2π·N]</text>
+  <text x="410" y="402" text-anchor="middle" font-size="12.5" fill="#dbe5f1">MoveL · 219 segmentos de 5 mm · N = 5 vueltas · R_max = 70 mm</text>
+  <line x1="410" y1="427" x2="410" y2="469" stroke="#455a64" stroke-width="2.5" marker-end="url(#arrowF)"/>
+
+  <rect x="150" y="469" width="520" height="130" rx="12" fill="url(#gradBlueF)" filter="#"/>
+  <rect x="150" y="469" width="520" height="130" rx="12" fill="url(#gradBlueF)" filter="url(#shadowF)"/>
+  <text x="410" y="503" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">3. nombres()</text>
+  <line x1="180" y1="518" x2="640" y2="518" stroke="#dbe5f1" stroke-width="1" opacity="0.4"/>
+  <text x="410" y="540" text-anchor="middle" font-size="13" fill="#dbe5f1">DIEGO · ALEJANDRO · EDWIN</text>
+  <text x="410" y="562" text-anchor="middle" font-size="12" fill="#dbe5f1">TextPath + MoveL · offset_y = 260 · 180 · 100 mm</text>
+  <text x="410" y="584" text-anchor="middle" font-size="11.5" fill="#b8cce4" font-style="italic">(una sola llamada dibuja los tres nombres)</text>
+  <line x1="410" y1="599" x2="410" y2="641" stroke="#455a64" stroke-width="2.5" marker-end="url(#arrowF)"/>
+
+  <rect x="150" y="641" width="520" height="80" rx="12" fill="url(#gradBlueF)" filter="url(#shadowF)"/>
+  <text x="410" y="675" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">4. ir_home() — Retorno</text>
+  <text x="410" y="699" text-anchor="middle" font-size="12.5" fill="#dbe5f1">MoveJ · robot.JointsHome()</text>
+  <line x1="410" y1="721" x2="410" y2="763" stroke="#455a64" stroke-width="2.5" marker-end="url(#arrowF)"/>
+
+  <rect x="310" y="763" width="200" height="58" rx="29" fill="url(#gradRedF)" filter="url(#shadowF)"/>
+  <text x="410" y="798" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">Fin</text>
+
+  <rect x="100" y="880" width="620" height="105" rx="10" fill="#f5f7fa" stroke="#cfd8dc" stroke-width="1"/>
+  <text x="120" y="908" font-size="12.5" font-weight="700" fill="#37474f">Notas técnicas</text>
+  <text x="120" y="933" font-size="11.5" fill="#37474f">• <tspan font-weight="600">moveL</tspan> se usa para todos los trazos y <tspan font-weight="600">MoveJ</tspan> solo para ir a Home.</text>
+  <text x="120" y="953" font-size="11.5" fill="#37474f">• <tspan font-weight="600">z_surface = 0</tspan> y <tspan font-weight="600">z_safe = −50</tspan> (el eje +Z del frame apunta hacia la superficie).</text>
+  <text x="120" y="973" font-size="11.5" fill="#37474f">• El TCP se mantiene con la orientación <tspan font-weight="600">ORIENT = rotx(0)</tspan> durante toda la rutina.</text>
+</svg>
