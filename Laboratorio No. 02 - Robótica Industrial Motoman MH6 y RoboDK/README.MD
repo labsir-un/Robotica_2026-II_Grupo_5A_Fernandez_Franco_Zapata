@@ -115,11 +115,11 @@ Las posiciones articulares se registraron directamente en la pantalla **`WORK HO
 <table>
   <tr>
     <td align="center" width="50%">
-      <img src="img/pendant_origin.jpeg" alt="Pantalla WORK HOME POSITION del pendant — columna ORIGIN" width="95%"><br>
+      <img src="img/pendoriginB.png" alt="Pantalla WORK HOME POSITION del pendant — columna ORIGIN" width="95%"><br>
       <em><strong>Figura 2c.</strong> Pantalla <code>WORK HOME POSITION</code> del teach pendant: columna <code>ORIGIN</code>, que almacena la posición home de trabajo configurada en el controlador para el robot R1.</em>
     </td>
     <td align="center" width="50%">
-      <img src="img/pendant_current.jpeg" alt="Pantalla WORK HOME POSITION del pendant — columna CURRENT" width="95%"><br>
+      <img src="img/pendcurrentB.png.jpeg" alt="Pantalla WORK HOME POSITION del pendant — columna CURRENT" width="95%"><br>
       <em><strong>Figura 2d.</strong> Pantalla <code>WORK HOME POSITION</code> del teach pendant: columna <code>CURRENT</code>, que reporta la posición instantánea del robot en el momento de la lectura.</em>
     </td>
   </tr>
