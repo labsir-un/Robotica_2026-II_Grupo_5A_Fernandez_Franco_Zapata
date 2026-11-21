@@ -527,7 +527,7 @@ Los videos inician con la introducción oficial de LabSIR y muestran la simulaci
 
 | Recurso                               | Enlace            |
 | ------------------------------------- | ----------------- |
-| 🎥 Ejecución física en el Motoman MH6 | `[Video](https://www.youtube.com/watch?v=iQOEZfHuUSo)` |
+| 🎥 Ejecución física en el Motoman MH6 | [Video](https://www.youtube.com/watch?v=iQOEZfHuUSo) |
 
 ---
 
